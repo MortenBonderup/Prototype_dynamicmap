@@ -22,6 +22,13 @@ const pinData = {
     ]
 };
 
+// Information related to each color
+const infoData = {
+    red: "Red pins represent important historical sites.",
+    green: "Green pins indicate natural parks and reserves.",
+    blue: "Blue pins highlight coastal areas and beaches."
+};
+
 // Function to add pins based on button click
 function addPins(color) {
     // Clear existing pins
@@ -36,6 +43,9 @@ function addPins(color) {
         const marker = L.marker(pin.coords).addTo(map);
         marker.bindPopup(pin.info);
     });
+
+    // Update the information display
+    document.getElementById('info').innerText = infoData[color];
 }
 
 // Event listeners for buttons
